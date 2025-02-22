@@ -15,12 +15,12 @@ class HelloWorld(FlowLauncher):
     def query(self, query):
         return [
             {
-                "Title": "Hello World, this is where title goes. {}".format(('Your query is: ' + query , query)[query == '']),
-                "SubTitle": "This is where your subtitle goes, press enter to open Flow's url",
+                "Title": "Gemini {}".format(('Your query is: ' + query , query)[query == '']),
+                "SubTitle": "Press enter to open Thibault-Savenkoff's GitHub",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher"]
+                    "parameters": ["https://github.com/Thibault-Savenkoff/Thibault-Savenkoff"]
                 }
             }
         ]
@@ -28,12 +28,12 @@ class HelloWorld(FlowLauncher):
     def context_menu(self, data):
         return [
             {
-                "Title": "Hello World Python's Context menu",
+                "Title": "Gemini's Context menu",
                 "SubTitle": "Press enter to open Flow the plugin's repo in GitHub",
                 "IcoPath": "Images/app.png",
                 "JsonRPCAction": {
                     "method": "open_url",
-                    "parameters": ["https://github.com/Flow-Launcher/Flow.Launcher.Plugin.HelloWorldPython"]
+                    "parameters": ["https://github.com/Thibault-Savenkoff/Flow.Launcher.Plugin.Gemini"]
                 }
             }
         ]
