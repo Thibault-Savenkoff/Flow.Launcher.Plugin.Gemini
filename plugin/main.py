@@ -1,18 +1,33 @@
-from pyflowlauncher import Plugin, Result, Method
-from pyflowlauncher.result import ResultResponse
+from flowlauncher import FlowLauncher
+import webbrowser
 
-plugin = Plugin()
+class Gemini(FlowLauncher):
 
+    def query(self, query):
+        return [
+            {
+                "Title": "Gemini {}".format(('Your query is: ' + query , query)[query == '']),
+                "SubTitle": "Press enter to open Thibault-Savenkoff's GitHub",
+                "IcoPath": "Images/app.png",
+                "JsonRPCAction": {
+                    "method": "open_url",
+                    "parameters": ["https://github.com/Thibault-Savenkoff/Thibault-Savenkoff"]
+                }
+            }
+        ]
 
-class Query(Method):
+    def context_menu(self, data):
+        return [
+            {
+                "Title": "Gemini's Context menu",
+                "SubTitle": "Press enter to open Flow the plugin's repo in GitHub",
+                "IcoPath": "Images/app.png",
+                "JsonRPCAction": {
+                    "method": "open_url",
+                    "parameters": ["https://github.com/Thibault-Savenkoff/Flow.Launcher.Plugin.Gemini"]
+                }
+            }
+        ]
 
-    def __call__(self, query: str) -> ResultResponse:
-        r = Result(
-            Title="This is a title!",
-            SubTitle="This is the subtitle!"
-        )
-        self.add_result(r)
-        return self.return_results()
-
-plugin.add_method(Query())
-plugin.run()
+    def open_url(self, url):
+        webbrowser.open(url)

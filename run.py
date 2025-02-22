@@ -1,18 +1,12 @@
-from pyflowlauncher import Plugin, Result, Method
-from pyflowlauncher.result import ResultResponse
+# -*- coding: utf-8 -*-
 
-plugin = Plugin()
+import sys,os
+parent_folder_path = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(parent_folder_path)
+sys.path.append(os.path.join(parent_folder_path, 'lib'))
+sys.path.append(os.path.join(parent_folder_path, 'plugin'))
 
+from plugin.main import Gemini
 
-class Query(Method):
-
-    def __call__(self, query: str) -> ResultResponse:
-        r = Result(
-            Title="This is a title!",
-            SubTitle="This is the subtitle!"
-        )
-        self.add_result(r)
-        return self.return_results()
-
-plugin.add_method(Query())
-plugin.run()
+if __name__ == "__main__":
+    Gemini()
