@@ -1,8 +1,7 @@
 from flowlauncher import FlowLauncher
 import webbrowser
 
-class Gemini(FlowLauncher):
-
+class Main(FlowLauncher):
     def query(self, query):
         return [
             {
