@@ -8,6 +8,8 @@ def open_url(self, url):
     webbrowser.open(url)
 
 class Query(Method):
+    def open_url(self, url):
+        webbrowser.open(url)
 
     def __call__(self, query: str) -> ResultResponse:
         r = Result(
@@ -20,6 +22,8 @@ class Query(Method):
         return self.return_results()
 
 class ContextMenu(Method):
+    def open_url(self, url):
+        webbrowser.open(url)
 
     def __call__(self, query: str) -> ResultResponse:
         r = Result(
