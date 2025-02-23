@@ -16,7 +16,7 @@ class Query(Method):
 
 class ContextMenu(Method):
 
-    def __call__(self, query: str) -> ResultResponse:
+    def __call__(self, context_menu: str) -> ResultResponse:
         r = Result(
             Title="This is a title!",
             SubTitle="This is the subtitle!",
