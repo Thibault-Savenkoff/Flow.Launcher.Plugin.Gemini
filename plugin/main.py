@@ -4,9 +4,6 @@ import webbrowser
 
 plugin = Plugin()
 
-def open_url(self, url):
-    webbrowser.open(url)
-
 class Query(Method):
 
     def __call__(self, query: str) -> ResultResponse:
@@ -14,10 +11,7 @@ class Query(Method):
             Title="This is a title!",
             SubTitle="This is the subtitle!",
             IcoPath="Images/app.png",
-            JsonRPCAction={
-                "method": "open_url",
-                "parameters": ["https://github.com/Thibault-Savenkoff/Thibault-Savenkoff"]
-            },
+            JsonRPCAction={"method": "open_url", "parameters": ["https://github.com/Thibault-Savenkoff/Thibault-Savenkoff"]},
             Score= 0
         )
         self.add_result(r)
@@ -30,14 +24,14 @@ class ContextMenu(Method):
             Title="This is a title!",
             SubTitle="This is the subtitle!",
             IcoPath="Images/app.png",
-            JsonRPCAction={
-                "method": "open_url",
-                "parameters": ["https://github.com/Thibault-Savenkoff/Flow.Launcher.Plugin.Gemini"]
-            },
+            JsonRPCAction={"method": "open_url", "parameters": ["https://github.com/Thibault-Savenkoff/Flow.Launcher.Plugin.Gemini"]},
             Score= 0
         )
         self.add_result(r)
         return self.return_results()
+
+def open_url(self, url):
+    webbrowser.open(url)
 
 plugin.add_method(Query())
 plugin.add_method(ContextMenu())
